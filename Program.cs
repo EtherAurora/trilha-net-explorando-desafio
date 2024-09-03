@@ -4,17 +4,21 @@ using DesafioProjetoHospedagem.Models;
 Console.OutputEncoding = Encoding.UTF8;
 
 // Cria os modelos de hóspedes e cadastra na lista de hóspedes
-List<Pessoa> hospedes = new List<Pessoa>();
-
-Pessoa p1 = new Pessoa(nome: "Hóspede 1");
-Pessoa p2 = new Pessoa(nome: "Hóspede 2");
-
-hospedes.Add(p1);
-hospedes.Add(p2);
+List<Pessoa> hospedes = new List<Pessoa>(){
+    new Pessoa(nome: "Hóspede 1"),
+    new Pessoa(nome: "Hóspede 2")
+};
 
 // Cria a suíte
 Suite suite = new Suite();
 Console.WriteLine("Qual quarto?");
+
+Console.WriteLine("Categorias:");
+Console.WriteLine("Standard");
+Console.WriteLine("Deluxe");
+Console.WriteLine("Premium");
+Console.WriteLine("Executiva");
+
 string quarto = Console.ReadLine().ToLower();
 switch (quarto){
     case "standard":
@@ -44,3 +48,5 @@ reserva.CadastrarHospedes(hospedes);
 // Exibe a quantidade de hóspedes e o valor da diária
 Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
 Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
+Console.WriteLine("Aperte Enter para prosseguir");
+Console.ReadLine();
